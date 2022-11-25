@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Team Prediction11</string>
+    <string-array name="opponent_team">
+        <item>Australia</item>
+        <item>England</item>
+        <item>Pakistan</item>
+        <item>South Africa</item>
+        <item>Sri Lanka</item>
+    </string-array>
+    <string-array name="venue">
+        <item>Australia</item>
+        <item>England</item>
+        <item>India</item>
+        <item>South Africa</item>
+        <item>Sri Lanka</item>
+    </string-array>
+    <string-array name="pitch_condition">
+        <item>Dusty</item>
+        <item>Green</item>
+        <item>Dead</item>
+    </string-array>
+    <string-array name="time">
+        <item>Day</item>
+        <item>Night</item>
+    </string-array>
+</resources>
