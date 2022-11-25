@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        if(FirebaseAuth.getInstance().getCurrentUser() == null){
-//            startLogin();
-//        }
+        if(FirebaseAuth.getInstance().getCurrentUser() == null){
+            startLogin();
+        }
 
         mRecyclerView = findViewById(R.id.recyclerview2);
         mRecyclerView.setNestedScrollingEnabled(false);
