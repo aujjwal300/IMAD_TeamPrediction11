@@ -21,21 +21,20 @@ public class Result extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         mRecyclerView = findViewById(R.id.recyclerview2);
-        mRecyclerView.setNestedScrollingEnabled(false);
 
         names = new ArrayList<>();
         mImages = new ArrayList<>();
         descp = new ArrayList<>();
 
-        adapter = new ListAdapter(this, names, mImages, descp);
+        adapter = new ListAdapter(getApplicationContext(), names, mImages, descp);
 
         mImages.add(R.drawable.virat_kohli);
         names.add("Virat Kohli");
-        descp.add("Righ Hand Batsman");
+        descp.add("Right Hand Batsman");
 
         mImages.add(R.drawable.rohit_sharma);
         names.add("Rohit Sharma");
-        descp.add("Righ Hand Batsman");
+        descp.add("Right Hand Batsman");
 
         mImages.add(R.drawable.rishabh_pant);
         names.add("Rishabh Pant");
@@ -45,7 +44,7 @@ public class Result extends AppCompatActivity {
         names.add("Virat Kohli");
         descp.add("Spin Bowler");
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1, GridLayoutManager.VERTICAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 1, GridLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setHasFixedSize(true);
 

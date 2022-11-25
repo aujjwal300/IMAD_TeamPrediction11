@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
             startLogin();
         }
 
-        mRecyclerView = findViewById(R.id.recyclerview2);
-        mRecyclerView.setNestedScrollingEnabled(false);
+        mRecyclerView = findViewById(R.id.recyclerview);
 
         names = new ArrayList<>();
         mImages = new ArrayList<>();
@@ -44,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
         mImages.add(R.drawable.virat_kohli);
         names.add("Virat Kohli");
-        descp.add("Righ Hand Batsman");
+        descp.add("Right Hand Batsman");
 
         mImages.add(R.drawable.rohit_sharma);
         names.add("Rohit Sharma");
-        descp.add("Righ Hand Batsman");
+        descp.add("Right Hand Batsman");
 
         mImages.add(R.drawable.rishabh_pant);
         names.add("Rishabh Pant");
