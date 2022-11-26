@@ -1,7 +1,6 @@
 package com.example.teamprediction11;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +10,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
     private Context context;
-    private List<String> names;
-    private List<Integer> images;
-    private List<String> descr;
+    private ArrayList<Players> mPlayers = new ArrayList<>();
 
-    public ListAdapter(Context context, List<String> names, List<Integer> images, List<String> descr){
+    public ListAdapter(Context context, ArrayList<Players> players){
         this.context = context;
-        this.names = names;
-        this.images = images;
-        this.descr = descr;
+        mPlayers = players;
     }
 
     @NonNull
@@ -35,14 +30,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.mTextView1.setText(names.get(position));
-        holder.mImageView.setImageResource(images.get(position));
-        holder.mTextView2.setText(descr.get(position));
+        holder.mTextView1.setText(mPlayers.get(position).getName());
+        holder.mImageView.setImageResource(mPlayers.get(position).getImage());
+        holder.mTextView2.setText(mPlayers.get(position).getDesc());
     }
 
     @Override
     public int getItemCount() {
-        return names.size();
+        return mPlayers.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
