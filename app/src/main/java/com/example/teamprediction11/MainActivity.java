@@ -26,7 +26,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ListAdapter adapter;
-    public ArrayList<Players> players = new ArrayList<>();
+    private ArrayList<Players> players = new ArrayList<>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
