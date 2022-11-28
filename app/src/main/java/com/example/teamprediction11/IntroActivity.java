@@ -45,8 +45,6 @@ public class IntroActivity extends AppCompatActivity {
         image.setAnimation(topAnim);
         slogan.setAnimation(bottomAnim);
 
-
-
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -57,7 +55,6 @@ public class IntroActivity extends AppCompatActivity {
                 }
             },SPLASH_SCREEN
             );
-
         }
     }
 
