@@ -5,8 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
@@ -17,16 +23,41 @@ import java.util.Arrays;
 import java.util.List;
 
 public class IntroActivity extends AppCompatActivity {
+    Animation topAnim,bottomAnim;
     int AUTHUI_REQ_CODE = 1001;
-    @Override
+    private static int SPLASH_SCREEN=5000;
+
+    ImageView image;
+    TextView logo,slogan;
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_intro);
 
+        //Animations
+        topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        topAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+
+        //Hooks
+        image = findViewById(R.id.criclogoiv);
+        slogan = findViewById(R.id.teampredictiontv);
+        image.setAnimation(topAnim);
+        slogan.setAnimation(bottomAnim);
+
+
+
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            this.finish();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(IntroActivity.this,MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            },SPLASH_SCREEN
+            );
+
         }
     }
 

@@ -16,37 +16,42 @@
         app:cardCornerRadius="10dp"
         android:layout_marginHorizontal="15dp"
         android:layout_marginVertical="5dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#E8F6FF"
             android:padding="10sp">
 
             <ImageView
+                android:id="@+id/imageview"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/virat_kohli"
-                android:id="@+id/imageview"/>
+                android:src="@drawable/virat_kohli" />
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/imageview"
-                android:padding="15sp"
                 android:orientation="vertical"
-                android:layout_centerVertical="true">
+                android:padding="15sp">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/nametextview"
-                    android:textSize="22sp"
-                    android:text="Virat Kohli"
-                    android:textStyle="bold"/>
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Virat Kohli"
+                    android:textSize="16sp" />
+
+                <TextView
                     android:id="@+id/desctextview"
-                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
                     android:text="Right Hand Batsman"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
