@@ -1,11 +1,16 @@
 package com.example.teamprediction11;
 
+import androidx.annotation.Keep;
+
+@Keep
 public class Stats {
-    String name;
-    Float str, avg;
-    Integer bf, num4s, num6s;
-    Stats(String name, Float str, Float avg, Integer bf, Integer num4s, Integer num6s){
-        this.name = name;
+    public String player_name;
+    public Float str, avg, bf, num4s, num6s;
+    Stats(){
+
+    }
+    Stats(String player_name, Float str, Float avg, Float bf, Float num4s, Float num6s){
+        this.player_name = player_name;
         this.str = str;
         this.avg = avg;
         this.bf = bf;
@@ -13,8 +18,32 @@ public class Stats {
         this.num6s = num6s;
     }
 
-    String getName() {
-        return name;
+    public void setPlayer_name(String player_name) {
+        this.player_name = player_name;
+    }
+
+    public void setAvg(Float avg) {
+        this.avg = avg;
+    }
+
+    public void setBf(Float bf) {
+        this.bf = bf;
+    }
+
+    public void setNum4s(Float num4s) {
+        this.num4s = num4s;
+    }
+
+    public void setNum6s(Float num6s) {
+        this.num6s = num6s;
+    }
+
+    public void setStr(Float str) {
+        this.str = str;
+    }
+
+    public String getPlayer_name() {
+        return player_name;
     }
 
     Float getAvg() {
@@ -25,15 +54,13 @@ public class Stats {
         return str;
     }
 
-    Integer getBf() {
-        return bf;
-    }
+    Float getBf() { return bf; }
 
-    Integer getNum4s() {
+    Float getNum4s() {
         return num4s;
     }
 
-    Integer getNum6s() {
+    Float getNum6s() {
         return num6s;
     }
 }

@@ -40,56 +40,28 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.recyclerview);
 
-        adapter = new ListAdapter(this, players);
-
         setPlayers();
 
+        adapter = new ListAdapter(this, players);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1, GridLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setHasFixedSize(true);
 
         mRecyclerView.setAdapter(adapter);
     }
-
+    public ArrayList<Players> getPlayers(){
+        return players;
+    }
     public void setPlayers(){
-        Players player1 = new Players("Virat Kohli", R.drawable.virat_kohli, "Right Hand Batsman");
+        Players player1 = new Players("Virat_Kohli", R.drawable.virat_kohli, "Right Hand Batsman");
         players.add(player1);
 
-        Players player2 = new Players("Rohit Sharma", R.drawable.rohit_sharma, "Right Hand Batsman");
+        Players player2 = new Players("Rohit_Sharma", R.drawable.rohit_sharma, "Right Hand Batsman");
         players.add(player2);
 
-        Players player3 = new Players("Rishabh Pant", R.drawable.rishabh_pant, "Wicket Keeper");
+        Players player3 = new Players("Rishabh_Pant", R.drawable.rishabh_pant, "Wicket Keeper");
         players.add(player3);
     }
-
-//    public void setPlayers(){
-//        Log.d("Ujjwal", "Hello1");
-//        db.collection("players").get()
-//                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                        List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-//                        Log.d("Ujjwal", String.valueOf(list));
-//                        for(DocumentSnapshot docSnap : list){
-//                            Log.d("Ujjwal", String.valueOf(docSnap));
-//                            try {
-//                                Players pl = docSnap.toObject(Players.class);
-//                                Log.d("Ujjwal", String.valueOf(pl.getName()));
-//                            }
-//                            catch (Exception e){
-//                                Log.e("Ujjwal", e.getMessage());
-//                            }
-//                        }
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.e("Ujjwal", e.getMessage());
-//                    }
-//                });
-//
-//    }
 
     public void onNextButtonClick(View view) {
         Intent i = new Intent(this, SelectConditionsActivity.class);
