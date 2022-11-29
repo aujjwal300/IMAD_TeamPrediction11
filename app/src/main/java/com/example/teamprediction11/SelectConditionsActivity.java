@@ -144,7 +144,7 @@ public class SelectConditionsActivity extends AppCompatActivity {
 
     private void callAPIforPerformance(String name, String avg, String bf, String str, String num4s, String num6s) {
         RequestQueue queue = Volley.newRequestQueue(SelectConditionsActivity.this);
-        String url = String.valueOf("http://10.0.2.2:8000/predict_runs?Player="+name+"&Avg="+avg+"&Bf="+bf+"&Str="+str+"&Fours="+num4s+"&Six="+num6s);
+        String url = String.valueOf("https://imad-api.herokuapp.com/predict_runs?Player="+name+"&Avg="+avg+"&Bf="+bf+"&Str="+str+"&Fours="+num4s+"&Six="+num6s);
         Log.d("OpGet3", String.valueOf(url));
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -201,36 +201,36 @@ public class SelectConditionsActivity extends AppCompatActivity {
                     }
                 });
 
-//        db.collection(venue).get()
-//                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                        List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-//                        for(DocumentSnapshot docSnap : list){
-//                            try {
-//                                Stats st = docSnap.toObject(Stats.class);
-//
-//                                ArrayList<Float> stats = playerStats.get(st.getPlayer_name());
-//                                stats.set(0, (stats.get(0) + st.getAvg()) / 2);
-//                                stats.set(1, (stats.get(1) + st.getBf()));
-//                                stats.set(2, (stats.get(2) + st.getStr()) / 2);
-//                                stats.set(3, (stats.get(3) + st.getNum4s()));
-//                                stats.set(4, (stats.get(4) + st.getNum6s()));
-//
-//                                playerStats.put(st.getPlayer_name(), stats);
-//                            }
-//                            catch (Exception e){
-//                                Log.e("VenGetFirebase", e.getMessage());
-//                            }
-//                        }
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.e("VenGetFirebase", e.getMessage());
-//                    }
-//                });
+        db.collection(venue).get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                        for(DocumentSnapshot docSnap : list){
+                            try {
+                                Stats st = docSnap.toObject(Stats.class);
+                                Log.d("VenGet", String.valueOf(st.getPlayer_name()));
+                                ArrayList<Float> stats = playerStats.get(String.valueOf(st.getPlayer_name()));
+                                stats.set(0, (stats.get(0) + st.getAvg()) / 2);
+                                stats.set(1, (stats.get(1) + st.getBf()));
+                                stats.set(2, (stats.get(2) + st.getStr()) / 2);
+                                stats.set(3, (stats.get(3) + st.getNum4s()));
+                                stats.set(4, (stats.get(4) + st.getNum6s()));
+
+                                playerStats.put(st.getPlayer_name(), stats);
+                            }
+                            catch (Exception e){
+                                Log.e("VenGetFirebase", e.getMessage());
+                            }
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("VenGetFirebase", e.getMessage());
+                    }
+                });
 
     }
 
